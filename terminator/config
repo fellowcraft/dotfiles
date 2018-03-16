@@ -1,0 +1,25 @@
+[global_config]
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  window_state = maximise
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_image = None
+    copy_on_selection = True
+    cursor_color = "#ff0000"
+    foreground_color = "#00ff00"
+    icon_bell = False
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#ff00e7:#b2ffc0:#00ffff:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
