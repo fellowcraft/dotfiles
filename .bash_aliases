@@ -73,7 +73,7 @@ alias manb='man -H'
 
 # personal
 alias mntLFUS='sshfs 23.250.123.134:/var/www/html/rothkamm/ ~/LFUS -o nonempty'
-alias mntSUP='sshfs 208.67.16.57:/var/www/html/ROTHKAMM/ ~/SUP -o nonempty'
+alias mntSUP='sshfs 208.67.16.57:/var/www/html/ ~/SUP -o nonempty'
 #alias conLFUS='/media/frank/bigdrive/sdc/WAVconvert8.sh'
 #alias conG='gcloud compute --project "reference-bee-517" ssh --zone "us-central1-c" "hcpu"'
 #alias Atari='wine /media/frank/My\ Book/sdb/IFORMM/steem_v3_2/Steem.exe &>/dev/null &'
