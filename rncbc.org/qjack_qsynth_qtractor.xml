@@ -1,45 +1,56 @@
 <!DOCTYPE patchbay>
-<patchbay version="0.4.5" name="qjack_qsynth_qtractor">
+<patchbay version="0.4.2" name="qjack_qsynth_qtractor">
  <output-sockets>
-  <socket exclusive="off" client="qsynth" type="jack-audio" name="qsynth 1">
-   <plug>left</plug>
-   <plug>right</plug>
+  <socket type="jack-audio" client="qsynth" exclusive="off" name="qsynth 1">
+   <plug>l_00</plug>
+   <plug>r_00</plug>
   </socket>
-  <socket exclusive="off" client="Qtractor" type="jack-audio" name="Qtractor 1">
+  <socket type="alsa-midi" client="masterkey 61" exclusive="off" name="masterkey 1">
+   <plug>masterkey 61 MIDI 1</plug>
+  </socket>
+  <socket type="alsa-midi" client="VMPK Output" exclusive="off" name="VMPK Output 1">
+   <plug>VMPK Output</plug>
+  </socket>
+  <socket type="jack-audio" client="Qtractor" exclusive="off" name="Qtractor 1">
    <plug>Master/out_1</plug>
    <plug>Master/out_2</plug>
   </socket>
-  <socket exclusive="off" client="PulseAudio JACK Sink" type="jack-audio" name="PulseAudio JACK Sink 1">
+  <socket type="jack-audio" client="PulseAudio JACK Sink" exclusive="off" name="PulseAudio JACK Sink 1">
    <plug>front-left</plug>
    <plug>front-right</plug>
   </socket>
-  <socket exclusive="off" client="Qtractor" type="alsa-midi" name="Qtractor MIDI">
+  <socket type="alsa-midi" client="Qtractor" exclusive="off" name="Qtractor MIDI">
    <plug>Master</plug>
   </socket>
-  <socket exclusive="off" client="system" type="jack-audio" name="system 1">
+  <socket type="jack-audio" client="system" exclusive="off" name="system 1">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket exclusive="off" client="Qtractor" type="jack-audio" name="Qtractor 1">
+  <socket type="jack-audio" client="Qtractor" exclusive="off" name="Qtractor 1">
    <plug>Master/in_1</plug>
    <plug>Master/in_2</plug>
   </socket>
-  <socket exclusive="off" client="system" type="jack-audio" name="system 1">
+  <socket type="alsa-midi" client="Qtractor" exclusive="off" name="Qtractor 1 MIDI">
+   <plug>Master</plug>
+  </socket>
+  <socket type="jack-audio" client="system" exclusive="off" name="system 1">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket exclusive="off" client="FLUID Synth \([0-9]+\)" type="alsa-midi" name="FLUID Synth \([0-9]+\) 1 MIDI">
+  <socket type="alsa-midi" client="FLUID Synth \([0-9]+\)" exclusive="off" name="FLUID Synth \([0-9]+\) 1 MIDI">
    <plug>Synth input port \([0-9]+:0\)</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="Qtractor 1" output="qsynth 1" type="jack-audio"/>
-  <cable input="system 1" output="Qtractor 1" type="jack-audio"/>
-  <cable input="system 1" output="PulseAudio JACK Sink 1" type="jack-audio"/>
-  <cable input="FLUID Synth \([0-9]+\) 1 MIDI" output="Qtractor MIDI" type="alsa-midi"/>
+  <cable type="jack-audio" input="Qtractor 1" output="qsynth 1"/>
+  <cable type="alsa-midi" input="Qtractor 1 MIDI" output="masterkey 1"/>
+  <cable type="alsa-midi" input="Qtractor 1 MIDI" output="VMPK Output 1"/>
+  <cable type="jack-audio" input="system 1" output="Qtractor 1"/>
+  <cable type="jack-audio" input="system 1" output="PulseAudio JACK Sink 1"/>
+  <cable type="alsa-midi" input="FLUID Synth \([0-9]+\) 1 MIDI" output="Qtractor MIDI"/>
  </cables>
 </patchbay>
 

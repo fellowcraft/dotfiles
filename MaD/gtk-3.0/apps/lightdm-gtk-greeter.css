@@ -1,0 +1,352 @@
+/*
+#######################
+#	      MaD  	      #
+# lightdm-gtk-greeter #
+# by The FranKenstein #
+#######################
+#
+	the panel widget at the top */
+#panel_window {
+		background-image: none;
+		background-color: @bg_color;
+		color: @text_color;
+		font-weight: bold;
+		text-shadow: 0 -1px alpha(@text_color, 0.50);
+		-gtk-icon-shadow: 0 -1px alpha(@text_color, 0.50); }
+
+
+
+/* 	the menubars/menus of the panel, i.e. indicators */
+#panel_window menubar {
+		min-height: 30px;
+		border-top: 1px solid mix(@bg_color, @bluecolor, 0.50);
+		padding-left: 10px;
+		padding-right: 10px;
+		background-image: none;
+		background-color: @menubar_bg_color;
+		color: @menubar_fg_color;
+		font-weight: bold;
+		text-shadow: 0 -1px alpha(@menubar_fg_color, 0.50);
+		-gtk-icon-shadow: 0 -1px alpha(@menubar_fg_color, 0.50); }
+
+#panel_window menubar > menuitem {
+		background-image: none;
+		background-color: @menubar_bg_color;
+		color: @menubar_fg_color; }
+	#panel_window menubar > menuitem label {
+		padding-left: 6px;
+		padding-right: 6px; }
+	#panel_window menubar > menuitem image {
+		margin-left: 3px;
+		margin-right: 3px; }
+
+#panel_window menubar > menuitem:hover {
+		border-style: none;
+		background-color: transparent;
+		background-image: linear-gradient(to bottom, @menubaritem_bg, shade(@menubaritem_bg, 0.80));
+		color: @menubaritem_fg; }
+
+#panel_window menubar > menuitem:disabled {
+		background-image: none;
+		background-color: @menubar_bg_color;
+		color: @text_insensitive; }
+
+
+
+#panel_window menu {
+		padding: 10px;
+		margin: 0px;
+		border-radius: 0px;
+		border: 1px solid @window_active;
+		background-image: none;
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu;
+		transition: ease-in; }
+
+#panel_window menu menuitem {
+		font-weight: normal;
+		text-shadow: none;
+		min-height: 18px;
+		min-width: 60px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		padding-left: 10px;
+		padding-right: 10px;
+		border-radius: 0px;
+		border: 1px solid transparent;
+		background-image: none;
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu; }
+
+#panel_window menu menuitem:hover {
+		background-color: @menuitem;
+		border-color: @border_normal;
+		color: @text_menuitem;
+		box-shadow: none; }
+
+#panel_window menu menuitem:disabled,
+#panel_window menu menuitem *:disabled {
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu_insensitive; }
+
+
+
+/* 	the login window */
+#login_window,
+#shutdown_dialog,
+#restart_dialog {
+		border-style: none;
+		border-radius: 0px;
+		background-color: @inline_toolbar_bg;
+		color: @text_color;
+		border: 1px solid mix(@bg_color, @bluecolor, 0.50); }
+
+
+
+/* 	the top half of the login-window, in GtkDialog terms, the content */
+#content_frame {
+		padding-bottom: 14px; }
+
+
+
+/* 	the user-combobox */
+#login_window menu {
+		padding: 10px;
+		margin: 0px;
+		border-radius: 0px;
+		border: 1px solid @window_active;
+		background-image: none;
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu;
+		transition: ease-in; }
+
+
+#login_window menu menuitem {
+		font-weight: normal;
+		text-shadow: none;
+		min-height: 18px;
+		min-width: 60px;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		padding-left: 10px;
+		padding-right: 10px;
+		border-radius: 0px;
+		border: 1px solid transparent;
+		background-image: none;
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu; }
+
+#login_window menu menuitem:hover {
+		background-color: @menuitem;
+		border-color: @border_normal;
+		color: @text_menuitem;
+		box-shadow: none; }
+
+#login_window menu menuitem:disabled,
+#login_window menu menuitem *:disabled {
+		background-color: shade(@menu_color, 0.85);
+		color: @text_menu_insensitive; }
+
+
+#login_window GtkComboBox .button,
+#login_window GtkComboBox .button:hover,
+#login_window GtkComboBox .button:active,
+#login_window GtkComboBox .button:active:hover,
+#login_window GtkComboBox .button:focus,
+#login_window GtkComboBox .button:hover:focus,
+#login_window GtkComboBox .button:active:focus,
+#login_window GtkComboBox .button:active:hover:focus {
+		padding: 0;
+		background: none;
+		border-style: none;
+		box-shadow: none; }
+
+
+#login_window GtkComboBox .button:focus,
+#login_window GtkComboBox .button:hover:focus,
+#login_window GtkComboBox .button:active:focus,
+#login_window GtkComboBox .button:active:hover:focus {
+		background: none;
+		border-style: none; }
+
+
+#login_window #user_combobox {
+		color: @text_button_normal;
+		font-size: 18px; }
+
+#login_window #user_combobox arrow {
+		color: @text_button_normal; }
+
+#login_window #user_combobox menu {
+		font-weight: bold; }
+
+
+
+/* 	the entries, one for the username, one for the password */
+#login_window entry {
+		min-height: 24px;
+		min-width: 140px;
+		border-radius: 0px;
+		border-width: 1px;
+		border-style: solid;
+		padding: 1px;
+		padding-left: 3px;
+		padding-right: 3px;
+		margin-left: 2px;
+		margin-right: 2px;
+		border-color: @border_entry_normal;
+		background-color: @entry_normal;
+		background-image: none;
+		color: @text_entry;
+		transition: all 150ms ease-out;
+		box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.10), 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+#login_window entry:focus,
+#login_window entry:hover {
+		background-color: @entry_active;
+		color: @text_entry;
+		border-color: @border_entry_active;
+		background-clip: padding-box;
+		transition: ease-out;
+		animation: entry_key 0.8s;
+		box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.10), 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+#login_window entry image.left, #login_window entry image.right {
+		min-height: 0px;
+		min-width: 0px;
+		padding-left: 3px;
+		padding-right: 3px; }
+
+
+
+
+/* 	the buttons, alternatively this could also be done with a simple ".lightdm-gtk-greeter .button" */
+#login_window .button,
+#shutdown_dialog .button,
+#restart_dialog .button {
+		border-radius: 0px;
+		padding: 3px 15px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: @border_normal;
+		background-color: @button_normal;
+		background-image: none;
+		color: @text_button_normal;
+		transition: all 150ms ease-out;
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+
+/* 	the user's avatar box */
+#user_image {
+		border-radius: 0px;
+		padding: 1px; }
+
+
+/* the border around the user's avatar box */
+#user_image_border {
+		border-radius: 0px;
+		border: 1px solid @bluecolor;
+		background-color: @button_normal;
+		background-image: none; }
+             
+
+/* 	the lower half of the login-window, in GtkDialog terms the buttonbox or action area */
+#buttonbox_frame {
+		padding-top: 10px;
+		padding-bottom: 0;
+		border-style: none;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		background-color: transparent;
+		background-image: none;
+		box-shadow: none; }
+
+
+/* 	the buttons that have focus by default in each window */
+#login_window .button.default,
+#shutdown_dialog .button.default,
+#restart_dialog .button.default,
+#login_window .button:focus,
+#login_window .button:active:focus,
+#shutdown_dialog .button:focus,
+#shutdown_dialog .button:active:focus,
+#restart_dialog .button:focus,
+#restart_dialog .button:active:focus {
+		min-height: 24px;
+		min-width: 24px;
+		border-radius: 0px;
+		margin-top: 2px;
+		margin-bottom: 2px;
+		margin-left: 2px;
+		margin-right: 2px;
+		padding: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: @border_normal;
+		background-color: @button_normal;
+		background-image: none;
+		color: @text_button_normal;
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+#login_window .button.default:hover,
+#shutdown_dialog .button.default:hover,
+#restart_dialog .button.default:hover,
+#login_window .button:hover:focus,
+#login_window .button:active:hover:focus,
+#shutdown_dialog .button:hover:focus,
+#shutdown_dialog .button:active:hover:focus,
+#restart_dialog .button:hover:focus,
+#restart_dialog .button:active:hover:focus {
+		background-color: @button_prelight;
+		background-image: none;
+		border-color: @border_prelight;
+		color: @text_button_prelight;
+		box-shadow:  0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+
+/* 	the shutdown button */
+#shutdown_button.button {
+		background-color: @redcolor_1;
+		background-image: none;
+		border-color: shade(@redcolor_1, 1.10);
+		color: @selected_fg_color;
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+#shutdown_button.button:hover,
+#shutdown_button.button:active,
+#shutdown_button.button:active:hover {
+		background-color: shade(@redcolor_1, 1.15);
+		background-image: none;
+		border-color: shade(@redcolor_1, 1.25);
+		color: @selected_fg_color;
+		border-image: none;
+		transition: ease-out;
+		box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.30); }
+
+
+/* 	the restart button */
+#restart_button.button {
+		background-color: @warning_color;
+		background-image: none;
+		color: @selected_fg_color;
+		border-color: shade(@warning_color, 1.10);
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+#restart_button.button:hover,
+#restart_button.button:active,
+#restart_button.button:active:hover {
+		background-color: shade(@warning_color, 1.10);
+		background-image: none;
+		color: @selected_fg_color;
+		border-color: shade(@warning_color, 1.20);
+		box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.30); }
+
+
+/* 	the warning, in case a wrong password is entered or something else goes wrong according to PAM */
+#greeter_infobar {
+		font-weight: bold; }
+
+
+
